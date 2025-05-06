@@ -4,11 +4,13 @@ const cors = require("cors");
 const galeriaRoutes = require("./src/routes/galeriaRoutes");
 const path = require("path");
 const reportRoutes = require("./src/routes/reportRoutes")
-
 const app = express();
+const artistaRoutes = require("./src/routes/artistaRoutes")
+
 app.use(cors());
 app.use(express.json());
 
+app.use("/api", artistaRoutes);
 app.use("/api", reportRoutes);
 app.use("/api", galeriaRoutes);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
