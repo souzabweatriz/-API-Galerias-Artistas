@@ -88,4 +88,10 @@ npm start
 
 ---
 
+### Filtro 
+
+#### Model e Controller
+![alt text](image.png)
+
+
 Feito com 💻 e café ☕ para te salvar na hora da prova!

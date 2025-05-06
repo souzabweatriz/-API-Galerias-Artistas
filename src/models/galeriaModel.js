@@ -1,8 +1,16 @@
 const pool = require("../config/database");
 
-const getGalerias = async () => {
-    const result = await pool.query('SELECT * FROM galerias');
-    return result.rows;
+const getGalerias = async (nome) => {
+    if (nome) {
+        const result = await pool.query(
+            'SELECT * FROM galerias WHERE nome ILIKE $1',
+            [`%${nome}%`]
+        );
+        return result.rows;
+    } else {
+        const result = await pool.query('SELECT * FROM galerias');
+        return result.rows;
+    }
 };
 
 const getGaleriaById = async (id) => {

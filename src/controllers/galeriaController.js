@@ -1,11 +1,12 @@
 const galeriaModel = require("../models/galeriaModel")
 
-const getAllGalerias = async (req, res) =>{
+const getAllGalerias = async (req, res) => {
     try {
-        const galerias = await galeriaModel.getGalerias();
+        const nome = req.query.nome;
+        const galerias = await galeriaModel.getGalerias(nome);
         res.json(galerias);
     } catch (error) {
-        res.status(404).json({message: 'Erro ao buscar Galerias' })
+        res.status(404).json({ message: 'Erro ao buscar Galerias' });
     }
 };
 
